@@ -141,20 +141,115 @@
 
 // console.log(interest(10000, undefined, 5));
 
-// 6. getters and setters | get : akses properti , set : ubah2 (eror)
+// 6. getters and setters | get : akses properti , set : ubah2
+//7. try and catch sama pake contoh no 6 blm berungsi full
 
 // const person = {
-//     firstName: 'Rifqy'
-//     lastName: 'Yusuf'
-//     get fullName () {
-//         return `${person.firstName} ${person.lastName}`;
-//     },
-//     set fullName (value) {
-//         const parts = value.split('');
-//         this.firstName = parts[0];
-//         this.lastName = parts[1];
-//     }
+//   firstName: "Rifqy",
+//   lastName: "Yusuf",
+//   set fullName(value) {
+//     if (typeof value !== "string") throw new Error("value is not a string");
+
+//     const parts = value.split("");
+//     if (parts.length !== 2) throw new Error();
+//     ("enter ad first and last name");
+
+//     this.firstName = parts[0];
+//     this.lastName = parts[1];
+//   },
+// };
+
+// try {
+//   person.fullName = "";
+// } catch (e) {
+//   alert(e);
 // }
 
-// person.fullName = 'john smith';
-// console.log(person)
+// console.log(person);
+
+//8. local vs global scope (paham cara kerja tapi gapaham arti)
+
+// const color = "red";
+
+// function start() {
+//   const massage = "hi";
+//   const color = "blue";
+//   console.log(color);
+// }
+
+// function stop() {
+//   const massage = "bye";
+// }
+
+// start();
+
+//9. let vs var
+
+//var untuk function scoop
+//let untuk block scoop
+
+// function start() {
+//   for (let i = 0; i < 5; i++) {
+//     console.log(i);
+//   }
+// }
+
+// start();
+
+//10. the this keyword & 11. changing menggunakan this, cara nya bikin const self = this (terbaru)
+
+// const video = {
+//   title: "a",
+//   tags: ["a", "b", "c"],
+//   showTags() {
+//     this.tags.forEach((tag) => {
+//       console.log(this.title, tag);
+//     });
+//   },
+// };
+
+// video.showTags();
+
+// 12 . sum of arguments
+// console.log(sum(1, 2, 3, 4));
+
+// function sum(...items) {
+//   if (items.leght === 1 && Array.isArray(items[0])) items = [...items[0]];
+
+//   return items.reduce((a, b) => a + b);
+// }
+
+// 13. area circle  membuat circle menggunkan object syntax
+//circle.radius = 2
+
+// const circle = {
+//   radius: 1,
+//   get area() {
+//     return Math.PI * this.radius * this.radius;
+//   },
+// };
+
+// console.log(circle.area);
+
+// 14. eror handling (bagaimana membaca eror) (uunspected token)
+
+try (
+    const numbers = [1, 2, 3, 4];
+    const count = countOccurrences (null, 1);
+    console.log(count);
+)
+
+catch (e) {
+    console.log(e.massage)
+}
+
+function countOccurrences(array, searchElement) {
+    if (!Array.isArray(Array))
+        throw new Error ('invalid array.')
+
+    return array.reduce((accumulator, current) => {
+        const occurrence = (current === searchElement) ? 1 : 0;
+        return accumulator + occurrence;
+    }, 0);
+}
+
